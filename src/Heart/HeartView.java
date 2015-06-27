@@ -1,8 +1,8 @@
 package Heart;
 
 import Beat.BeatModelInterface;
-import Beat.ControllerInterface;
 import Beat.DJView;
+import Menu.ControllerInterface;
 
 public class HeartView extends DJView {
 	

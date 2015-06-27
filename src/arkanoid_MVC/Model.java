@@ -1,8 +1,12 @@
 package arkanoid_MVC;
 
 import java.awt.Rectangle;
+import java.io.File;
 import java.util.ArrayList;
-import java.util.*;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.AudioSystem;
+
+
 public abstract class Model {
 	int x;
 	int y;
@@ -53,13 +57,7 @@ public abstract class Model {
 		notifyModelObserver();
 	}
 	
-	public void finDelJuego() {
-		//pausa = !pausa;
-		notifyModelObserver();
-	}
-	
 	public abstract Rectangle getBounds();
-	
 	
 	public void registerObserver(ModelObserver o) {
 		ModelObserver.add(o);
@@ -72,7 +70,6 @@ public abstract class Model {
 			
 			System.out.println("notificando a observadores");
 			observer.pausa();
-			observer.perdio();
 		}
 	}
 	public void removeObserver(ModelObserver o) {
@@ -82,7 +79,6 @@ public abstract class Model {
 			System.out.println("observador eliminado");
 		}
 	}
-	
 }
 	
 	

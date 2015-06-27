@@ -2,7 +2,10 @@ package Beat;
     
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
+
+import Menu.ControllerInterface;
 
 public class DJView implements ActionListener,  BeatObserver, BPMObserver {
 	protected BeatModelInterface model;

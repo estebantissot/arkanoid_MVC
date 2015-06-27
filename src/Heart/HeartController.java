@@ -1,7 +1,7 @@
 package Heart;
 
+import Menu.ControllerInterface;
 import Strategy.StrategyView;
-import Beat.ControllerInterface;
 import Beat.DJView;
   
 public class HeartController implements ControllerInterface {

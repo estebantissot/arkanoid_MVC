@@ -8,7 +8,8 @@ import javax.swing.*;
 
 import Beat.*;
 import Heart.*;
-import Detector.*;
+import Menu.ControllerInterface;
+import arkanoid_MVC.*;
 
 public class StrategyView extends DJView {
 
@@ -61,11 +62,11 @@ public class StrategyView extends DJView {
 						setModel(beat);
 					}
 					if(comboBox.getSelectedIndex()==3) {
-						if(controller!=null) controller.stop();
+			/*			if(controller!=null) controller.stop();
 						DetectorModel detector= new DetectorModel();
 						DetectorController detectorController = new DetectorController(detector,thisView);
 						setController(detectorController);
-						setModel((new DetectorAdapter(detector)));
+						setModel((new DetectorAdapter(detector)));*/
 					}
 				}
 			}

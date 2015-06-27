@@ -1,4 +1,4 @@
-package headfirst.combined.djview;
+package arkanoid_MVC;
 
 import java.awt.EventQueue;
 
@@ -6,18 +6,22 @@ import javax.swing.JFrame;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
-import javax.swing.JTextPane;
+
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JSeparator;
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
 import javax.swing.JFormattedTextField;
-import java.awt.Color;
+
 import java.awt.SystemColor;
+
 import javax.swing.SwingConstants;
+
+import Beat.DJTestDrive;
+import Heart.HeartTestDrive;
+import Menu.AllinOneTestDrive;
 
 public class Interface {
 
@@ -58,13 +62,16 @@ public class Interface {
 		BeatM.setFont(new Font("Simplified Arabic", Font.ITALIC, 16));
 		BeatM.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				DJTestDrive.play();
 				System.out.println("Beat Model");
+				
 			}
 		});
 		
 		JButton btnHeartModel = new JButton("Heart Model");
 		btnHeartModel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				HeartTestDrive.play();
 				System.out.println("Heart Model");
 			}
 		});
@@ -74,6 +81,7 @@ public class Interface {
 		btnArkanoidTestdrive.setFont(new Font("Simplified Arabic", Font.ITALIC, 16));
 		btnArkanoidTestdrive.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ArkanoidTestDrive.play();
 				System.out.println("Arkanoid");
 			}
 		});
@@ -81,6 +89,7 @@ public class Interface {
 		JButton btnModelsIn = new JButton("3 Models in 1");
 		btnModelsIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				AllinOneTestDrive.play();
 				System.out.println("3models");
 			}
 		});

@@ -1,5 +1,6 @@
 package Beat;
 
+import Menu.ControllerInterface;
 import Strategy.StrategyView;
 
   

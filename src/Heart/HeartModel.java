@@ -16,7 +16,7 @@ public class HeartModel implements HeartModelInterface, Runnable {
 	Thread thread;
 	boolean cond;
 
-	private HeartModel() {
+	public HeartModel() {
 		thread = new Thread(this);
 		thread.start();
 	}
