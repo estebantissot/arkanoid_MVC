@@ -18,10 +18,12 @@ import javax.swing.JFormattedTextField;
 import java.awt.SystemColor;
 
 import javax.swing.SwingConstants;
+
 import arkanoid_beat.ArkanoidBeatTestDrive;
 import Beat.DJTestDrive;
 import Heart.HeartTestDrive;
 import Menu.AllinOneTestDrive;
+import Strategy.ModelSelectorTestDrive;
 
 public class Interface {
 
@@ -71,8 +73,8 @@ public class Interface {
 		JButton btnHeartModel = new JButton("Heart Model");
 		btnHeartModel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//HeartTestDrive.play();
-				ArkanoidBeatTestDrive.play();
+				HeartTestDrive.play();
+				
 				System.out.println("Heart Model");
 			}
 		});
@@ -89,15 +91,6 @@ public class Interface {
 		});
 		
 
-		JButton btnArkanoidBeatModel = new JButton("Arkanoid-Beat");
-		btnArkanoidBeatModel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ArkanoidBeatTestDrive.play();
-				System.out.println("Arkanoid-Beat");
-			}
-		});
-		btnHeartModel.setFont(new Font("Simplified Arabic", Font.ITALIC, 16));
-		
 		JButton btnModelsIn = new JButton("3 Models in 1");
 		btnModelsIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -115,41 +108,69 @@ public class Interface {
 		frmtdtxtfldModelos.setHorizontalAlignment(SwingConstants.CENTER);
 		frmtdtxtfldModelos.setBackground(SystemColor.menu);
 		frmtdtxtfldModelos.setFont(new Font("Simplified Arabic", Font.PLAIN, 28));
+		
+		JButton btnArkanoidBeat = new JButton("Arkanoid Beat");
+		btnArkanoidBeat.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ArkanoidBeatTestDrive.play();
+				System.out.println("Arkanoid Beat");
+			}
+		});
+		btnArkanoidBeat.setFont(new Font("Simplified Arabic", Font.ITALIC, 16));
+		
+		JButton btnStrategy = new JButton("Strategy");
+		btnStrategy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ModelSelectorTestDrive.play();
+				System.out.println("Strategy");
+
+			}
+		});
+		btnStrategy.setFont(new Font("Simplified Arabic", Font.ITALIC, 16));
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
+			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap(148, Short.MAX_VALUE)
+					.addContainerGap(142, Short.MAX_VALUE)
 					.addComponent(frmtdtxtfldModelos, GroupLayout.PREFERRED_SIZE, 207, GroupLayout.PREFERRED_SIZE)
 					.addGap(135))
+				.addComponent(separator, GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(56)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(btnArkanoidTestdrive, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(BeatM, GroupLayout.PREFERRED_SIZE, 156, GroupLayout.PREFERRED_SIZE))
-					.addGap(66)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(btnModelsIn, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(btnHeartModel, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(66, Short.MAX_VALUE))
-				.addComponent(separator, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+					.addGap(55)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+							.addComponent(BeatM, GroupLayout.PREFERRED_SIZE, 156, GroupLayout.PREFERRED_SIZE)
+							.addComponent(btnArkanoidTestdrive))
+						.addComponent(btnArkanoidBeat, GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
+					.addGap(65)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(btnStrategy, GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+						.addComponent(btnModelsIn, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+						.addComponent(btnHeartModel, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE))
+					.addGap(62))
 		);
 		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
+			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(21)
 					.addComponent(frmtdtxtfldModelos, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
 					.addGap(30)
 					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 9, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(BeatM, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnHeartModel, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE))
-					.addGap(32)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnArkanoidTestdrive, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnModelsIn, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE))
-					.addGap(43))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(BeatM, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(btnArkanoidBeat, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(btnArkanoidTestdrive, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(btnHeartModel, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(btnStrategy, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(btnModelsIn, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(19, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}

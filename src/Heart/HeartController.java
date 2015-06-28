@@ -1,7 +1,7 @@
 package Heart;
 
 import Menu.ControllerInterface;
-import Strategy.StrategyView;
+import Strategy.ModelSelector;
 import Beat.DJView;
   
 public class HeartController implements ControllerInterface {
@@ -17,7 +17,7 @@ public class HeartController implements ControllerInterface {
 		view.disableStartMenuItem();
 	}
 	
-	public HeartController(StrategyView view){
+	public HeartController(ModelSelector view){
 		this.model = HeartModel.getInstance();
 		this.view = view;
 		this.view.disableStopMenuItem();

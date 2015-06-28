@@ -13,7 +13,7 @@ public class HeartView extends DJView {
 	public void updateBPM() {
 		if (model != null) {
 			if (bpmOutputLabel != null) {
-        			bpmOutputLabel.setText("Numero de Instancias: " + model.getBPM());
+        			bpmOutputLabel.setText("Instancias: " + model.getBPM());
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 package Beat;
 
 import Menu.ControllerInterface;
-import Strategy.StrategyView;
+import Strategy.ModelSelector;
 
   
 public class BeatController implements ControllerInterface {
@@ -18,7 +18,7 @@ public class BeatController implements ControllerInterface {
 		model.initialize();
 	}
 	
-	public BeatController(BeatModel model, StrategyView view) {
+	public BeatController(BeatModel model, ModelSelector view) {
 		this.view = view;
 		this.view.disableStopMenuItem();
 		this.view.enableStartMenuItem();

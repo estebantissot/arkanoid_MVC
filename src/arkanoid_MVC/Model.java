@@ -1,11 +1,7 @@
 package arkanoid_MVC;
 
 import java.awt.Rectangle;
-import java.io.File;
 import java.util.ArrayList;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.AudioSystem;
-
 
 public abstract class Model {
 	int x;

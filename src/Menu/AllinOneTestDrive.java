@@ -9,9 +9,6 @@ import Beat.BeatModel;
 import Menu.ControllerInterface;
 import Heart.HeartController;
 import Heart.HeartModel;
-import Menu.ControllerInterface;
-
-
 
 public class AllinOneTestDrive {
 	public static void main(String[] args){

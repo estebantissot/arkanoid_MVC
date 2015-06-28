@@ -31,6 +31,7 @@ public class DJView implements ActionListener,  BeatObserver, BPMObserver {
 		this.model = model;
 		model.registerObserver((BeatObserver)this);
 		model.registerObserver((BPMObserver)this);
+		
     }
     
     public DJView(){
@@ -53,6 +54,7 @@ public class DJView implements ActionListener,  BeatObserver, BPMObserver {
         viewFrame.getContentPane().add(viewPanel, BorderLayout.CENTER);
         viewFrame.pack();
         viewFrame.setVisible(true);
+
 	}
   
   
@@ -165,6 +167,7 @@ public class DJView implements ActionListener,  BeatObserver, BPMObserver {
 			} else {
 				if (bpmOutputLabel != null) {
         			bpmOutputLabel.setText("Current BPM: " + model.getBPM());
+        			
 				}
 			}
 		}

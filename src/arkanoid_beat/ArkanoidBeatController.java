@@ -1,11 +1,9 @@
 package arkanoid_beat;
 import arkanoid_MVC.Bola;
-import arkanoid_MVC.Model;
 import Beat.BeatModelInterface;
 import Menu.ControllerInterface;
+import Strategy.ModelSelector;
 import Beat.DJView;
-import Beat.BeatBar;
-//import Strategy.ModelSelector;
 
   
 public class ArkanoidBeatController implements ControllerInterface {
@@ -13,9 +11,8 @@ public class ArkanoidBeatController implements ControllerInterface {
 	DJView view1;
 	Bola bola1;
 	
-	public ArkanoidBeatController(BeatModelInterface model) {
+	public ArkanoidBeatController(BeatModelInterface model, ModelSelector view) {
 		this.model = model;
-		int bpm;
 		view1 = new DJView(this, model);
     	System.out.println("Music Controller 1");
 		view1.createView();
@@ -27,10 +24,6 @@ public class ArkanoidBeatController implements ControllerInterface {
   
 	public ArkanoidBeatController(Bola bola1) {
     	System.out.println("Music Controller 2");
-		// TODO Auto-generated constructor stub
-		//bola1 = bola1;
-		this.model = model;
-		this.view1 = view1;
 		this.view1.disableStopMenuItem();
 		this.view1.enableStartMenuItem();
 		this.model.initialize();

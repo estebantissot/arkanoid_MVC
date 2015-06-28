@@ -70,7 +70,7 @@ public class ArkanoidView extends JPanel implements  ModelObserver, Runnable  {
 		
 		super.paint(g);
 		Image background;
-		String imagen = "Oceano";
+		String imagen = "Desierto";
 		if (imagen == "Nieve" ) {background = new ImageIcon("./src/Imagenes/Nieve.jpg").getImage();}
 		else if (imagen == "Desierto") {background = new ImageIcon("./src/Imagenes/Desierto.jpg").getImage();}
 		else {background = new ImageIcon("./src/Imagenes/Oceano.jpg").getImage();}
