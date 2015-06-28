@@ -14,14 +14,7 @@ public class ArkanoidBeatTestDrive {
 	}
 	
 	public static void play(){
-		//Bola bola1 = new Bola(0,0);
-		//Bola bola2 = new Bola(190,150);
-		//Raqueta raqueta = new Raqueta();
 		BeatModelInterface model = new Bola(20,20);
-		//MusicController controller2 = new MusicController (model);
-		MusicController controller = new MusicController(model);
-		
-    //	BeatModelInterface model = new MusicModel();
-   	//	ControllerInterface controller = new MusicController(model);
+		ArkanoidBeatController controller = new ArkanoidBeatController(model);
 	}
 }

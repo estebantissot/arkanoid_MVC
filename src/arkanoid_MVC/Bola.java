@@ -22,8 +22,7 @@ public class Bola extends Model implements Runnable, BeatModelInterface {
 		super(x,y,1,1);
 		thread = new Thread(this);
 		thread.start();
-		speed = 10;
-	
+		speed = 10;	
 	}
 
 	public int getDiameter() {return DIAMETER;}					
@@ -40,19 +39,19 @@ public class Bola extends Model implements Runnable, BeatModelInterface {
 				if (getPosX() + getXA() < 0) {
 					setXA(1);
 					Sound.PELOTITA.play();
-					notifyBPMObservers();
-		
+					notifyBeatObservers();
 				}
+				
 				if (x + xa > Width - DIAMETER) {
 					setXA(-1);
 					Sound.PELOTITA.play();
-					notifyBPMObservers();
+					notifyBeatObservers();
 					
 				}
 				if (y + ya < 0) {
 					setYA(1);
 					Sound.PELOTITA.play();
-					notifyBPMObservers();
+					notifyBeatObservers();
 				}
 					
 				setPosX(getPosX()+(2*getXA()));
@@ -69,11 +68,6 @@ public class Bola extends Model implements Runnable, BeatModelInterface {
 		return false;
 	}
 
-	public void setSpeed(int a) {
-		System.out.println("set speed");
-		speed = a;	
-	}
-
 	@Override
 	public void initialize() {
 		speed = 0;
@@ -86,37 +80,39 @@ public class Bola extends Model implements Runnable, BeatModelInterface {
 
 	@Override
 	public void off() {
-
 		speed =0;
 	}
 
 	@Override
 	public void setBPM(int bpm) {
 		speed = bpm;
+		notifyBPMObservers();
 	}
 
 	@Override
 	public int getBPM() {
-	
 		return speed;
 	}
 
+	public void registerObserver(BPMObserver o) {
+		bpmObservers.add(o);
+	}
+	
+	public void registerObserver(BeatObserver o) {
+		beatObservers.add(o);
+	}
+	
 	public void notifyBeatObservers() {
 		for(int i = 0; i < beatObservers.size(); i++) {
 			BeatObserver observer = (BeatObserver)beatObservers.get(i);
 			observer.updateBeat();
 		}
-	}
-  
-	public void registerObserver(BPMObserver o) {
-		bpmObservers.add(o);
-	}
+	}  
   
 	public void notifyBPMObservers() {
 		for(int i = 0; i < bpmObservers.size(); i++) {
 			BPMObserver observer = (BPMObserver)bpmObservers.get(i);
-			observer.updateBPM();
-			
+			observer.updateBPM();	
 		}
 	}
 
@@ -132,11 +128,5 @@ public class Bola extends Model implements Runnable, BeatModelInterface {
 		if (i >= 0) {
 			bpmObservers.remove(i);
 		}
-	}
-
-	@Override
-	public void registerObserver(BeatObserver o) {
-		beatObservers.add(o);
-	}
-	
+	}	
 }

@@ -8,12 +8,12 @@ import Beat.BeatBar;
 //import Strategy.ModelSelector;
 
   
-public class MusicController implements ControllerInterface {
+public class ArkanoidBeatController implements ControllerInterface {
 	BeatModelInterface model;
 	DJView view1;
 	Bola bola1;
 	
-	public MusicController(BeatModelInterface model) {
+	public ArkanoidBeatController(BeatModelInterface model) {
 		this.model = model;
 		int bpm;
 		view1 = new DJView(this, model);
@@ -25,7 +25,7 @@ public class MusicController implements ControllerInterface {
 		model.initialize();
 	}
   
-	public MusicController(Bola bola1) {
+	public ArkanoidBeatController(Bola bola1) {
     	System.out.println("Music Controller 2");
 		// TODO Auto-generated constructor stub
 		//bola1 = bola1;
