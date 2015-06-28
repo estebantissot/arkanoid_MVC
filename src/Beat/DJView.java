@@ -2,9 +2,7 @@ package Beat;
     
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
-
 import Menu.ControllerInterface;
 
 public class DJView implements ActionListener,  BeatObserver, BPMObserver {
@@ -28,7 +26,8 @@ public class DJView implements ActionListener,  BeatObserver, BPMObserver {
 
 
     public DJView(ControllerInterface controller, BeatModelInterface model) {	
-		this.controller = controller;
+		
+    	this.controller = controller;
 		this.model = model;
 		model.registerObserver((BeatObserver)this);
 		model.registerObserver((BPMObserver)this);
@@ -39,6 +38,7 @@ public class DJView implements ActionListener,  BeatObserver, BPMObserver {
     }
 
     public void createView() {
+    	System.out.println("creo interface");
 		viewPanel = new JPanel(new GridLayout(1, 2));
         viewFrame = new JFrame("View");
         viewFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

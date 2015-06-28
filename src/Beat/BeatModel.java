@@ -142,4 +142,5 @@ public class BeatModel implements BeatModelInterface, MetaEventListener {
 		}
         return event;
     }
+
 }

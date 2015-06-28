@@ -1,21 +1,29 @@
 package arkanoid_MVC;
 import java.awt.Rectangle;
-
+import java.util.ArrayList;
+import Beat.BPMObserver;
+import Beat.BeatModelInterface;
+import Beat.BeatObserver;
 import arkanoid_MVC.Model;
 
 import javax.sound.sampled.Clip;
 
-public class Bola extends Model implements Runnable {
+public class Bola extends Model implements Runnable, BeatModelInterface {
 	private static final int DIAMETER = 20;
 	private int score = 0;
 	Thread thread;
 	Clip sonido;
+	int speed;
+	ArrayList<BeatObserver> beatObservers = new ArrayList<BeatObserver>();
+	ArrayList<BPMObserver> bpmObservers = new ArrayList<BPMObserver>();
 
 
 	public Bola(int x, int y) {
 		super(x,y,1,1);
 		thread = new Thread(this);
 		thread.start();
+		speed = 10;
+	
 	}
 
 	public int getDiameter() {return DIAMETER;}					
@@ -32,21 +40,25 @@ public class Bola extends Model implements Runnable {
 				if (getPosX() + getXA() < 0) {
 					setXA(1);
 					Sound.PELOTITA.play();
+					notifyBPMObservers();
+		
 				}
 				if (x + xa > Width - DIAMETER) {
 					setXA(-1);
 					Sound.PELOTITA.play();
-					Sound.PELOTITA.loop();
+					notifyBPMObservers();
+					
 				}
 				if (y + ya < 0) {
 					setYA(1);
 					Sound.PELOTITA.play();
+					notifyBPMObservers();
 				}
 					
 				setPosX(getPosX()+(2*getXA()));
 				setPosY(getPosY()+(2*getYA()));
 				
-				try {Thread.sleep(10);} 
+				try {Thread.sleep(speed);} 
 				catch (Exception e) {}	
 				}
 		}
@@ -56,6 +68,75 @@ public class Bola extends Model implements Runnable {
 			return true;
 		return false;
 	}
+
+	public void setSpeed(int a) {
+		System.out.println("set speed");
+		speed = a;	
+	}
+
+	@Override
+	public void initialize() {
+		speed = 0;
+	}
+
+	@Override
+	public void on() {
+		speed =10;
+	}
+
+	@Override
+	public void off() {
+
+		speed =0;
+	}
+
+	@Override
+	public void setBPM(int bpm) {
+		speed = bpm;
+	}
+
+	@Override
+	public int getBPM() {
+	
+		return speed;
+	}
+
+	public void notifyBeatObservers() {
+		for(int i = 0; i < beatObservers.size(); i++) {
+			BeatObserver observer = (BeatObserver)beatObservers.get(i);
+			observer.updateBeat();
+		}
+	}
   
+	public void registerObserver(BPMObserver o) {
+		bpmObservers.add(o);
+	}
+  
+	public void notifyBPMObservers() {
+		for(int i = 0; i < bpmObservers.size(); i++) {
+			BPMObserver observer = (BPMObserver)bpmObservers.get(i);
+			observer.updateBPM();
+			
+		}
+	}
+
+	public void removeObserver(BeatObserver o) {
+		int i = beatObservers.indexOf(o);
+		if (i >= 0) {
+			beatObservers.remove(i);
+		}
+	}
+
+	public void removeObserver(BPMObserver o) {
+		int i = bpmObservers.indexOf(o);
+		if (i >= 0) {
+			bpmObservers.remove(i);
+		}
+	}
+
+	@Override
+	public void registerObserver(BeatObserver o) {
+		beatObservers.add(o);
+	}
 	
 }

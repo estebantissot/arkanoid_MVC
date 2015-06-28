@@ -18,7 +18,7 @@ import javax.swing.JFormattedTextField;
 import java.awt.SystemColor;
 
 import javax.swing.SwingConstants;
-
+import arkanoid_beat.ArkanoidBeatTestDrive;
 import Beat.DJTestDrive;
 import Heart.HeartTestDrive;
 import Menu.AllinOneTestDrive;
@@ -71,7 +71,8 @@ public class Interface {
 		JButton btnHeartModel = new JButton("Heart Model");
 		btnHeartModel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				HeartTestDrive.play();
+				//HeartTestDrive.play();
+				ArkanoidBeatTestDrive.play();
 				System.out.println("Heart Model");
 			}
 		});
@@ -82,9 +83,20 @@ public class Interface {
 		btnArkanoidTestdrive.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ArkanoidTestDrive.play();
+				
 				System.out.println("Arkanoid");
 			}
 		});
+		
+
+		JButton btnArkanoidBeatModel = new JButton("Arkanoid-Beat");
+		btnArkanoidBeatModel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ArkanoidBeatTestDrive.play();
+				System.out.println("Arkanoid-Beat");
+			}
+		});
+		btnHeartModel.setFont(new Font("Simplified Arabic", Font.ITALIC, 16));
 		
 		JButton btnModelsIn = new JButton("3 Models in 1");
 		btnModelsIn.addActionListener(new ActionListener() {
