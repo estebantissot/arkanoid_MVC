@@ -21,13 +21,13 @@ public class TestPausaBola {
 		int pos1x = bola1.getPosX();
 		int pos2x = bola2.getPosX();
 		Thread.sleep(20);
-		assertEquals(pos1x, bola1.getPosX());;
-		assertEquals(pos2x, bola2.getPosX());;
+		assertEquals(pos1x, bola1.getPosX());
+		assertEquals(pos2x, bola2.getPosX());
 		
 	
 		controller.pausa();
 		Thread.sleep(20);
-		assertNotEquals(pos1x, bola1.getPosX());;
-		assertNotEquals(pos2x, bola2.getPosX());;
+		assertNotEquals(pos1x, bola1.getPosX());
+		assertNotEquals(pos2x, bola2.getPosX());
 	}
 }
