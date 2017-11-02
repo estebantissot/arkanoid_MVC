@@ -26,7 +26,7 @@ public class ArkanoidController {
 		raqueta.move();
 	}
 	
-	void collision(Bola bola){ 
+	public void collision(Bola bola){ 
 		bola.incrementarScore(); 
 		bola.setYA(-1);
 		bola.setPosY(raqueta.getTopY() - bola.getDiameter());
