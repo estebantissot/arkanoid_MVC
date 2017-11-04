@@ -14,7 +14,6 @@ public class ArkanoidBeatController implements ControllerInterface {
 	public ArkanoidBeatController(BeatModelInterface model, ModelSelector view) {
 		this.model = model;
 		view1 = new DJView(this, model);
-    	System.out.println("Music Controller 1");
 		view1.createView();
         view1.createControls();
 		view1.disableStopMenuItem();
@@ -23,7 +22,6 @@ public class ArkanoidBeatController implements ControllerInterface {
 	}
   
 	public ArkanoidBeatController(Bola bola1) {
-    	System.out.println("Music Controller 2");
 		this.view1.disableStopMenuItem();
 		this.view1.enableStartMenuItem();
 		this.model.initialize();
@@ -58,4 +56,9 @@ public class ArkanoidBeatController implements ControllerInterface {
  		System.out.println("set BPM");
  		model.setBPM(bpm);
 	}
+ 	
+ 	public BeatModelInterface getModel() {
+ 		
+ 		return model;
+ 	}
 }

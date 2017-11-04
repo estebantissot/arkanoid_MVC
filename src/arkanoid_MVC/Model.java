@@ -12,6 +12,7 @@ public abstract class Model {
 	int Height;
 	boolean pausa;
 	ArrayList ModelObserver = new ArrayList();
+
 	
 	public Model (int x, int y, int xa, int ya){
 		this.x = x;
@@ -56,14 +57,11 @@ public abstract class Model {
 	
 	public void registerObserver(ModelObserver o) {
 		ModelObserver.add(o);
-		//System.out.println("observador registrado");
 	}
   
 	public void notifyModelObserver() {
 		for(int i = 0; i < ModelObserver.size(); i++) {
 			ModelObserver observer = (ModelObserver)ModelObserver.get(i);
-			
-			//System.out.println("notificando a observadores");
 			observer.pausa();
 		}
 	}
@@ -71,8 +69,13 @@ public abstract class Model {
 		int i = ModelObserver.indexOf(o);
 		if (i >= 0) {
 			ModelObserver.remove(i);
-			//System.out.println("observador eliminado");
 		}
+	}
+	
+	public ArrayList getObserver() {
+		
+		return ModelObserver;
+		
 	}
 }
 	

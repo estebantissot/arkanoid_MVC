@@ -48,5 +48,8 @@ public class ArkanoidBeatAdapter implements BeatModelInterface{
 	public void removeObserver(BPMObserver o) {
 		this.bola1.removeObserver(o);
 	}
-
+	
+	public Bola getBola() {
+		return bola1;
+	}
 }

@@ -39,7 +39,6 @@ public class DJView implements ActionListener,  BeatObserver, BPMObserver {
     }
 
     public void createView() {
-    	System.out.println("creo interface");
 		viewPanel = new JPanel(new GridLayout(1, 2));
         viewFrame = new JFrame("View");
         viewFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

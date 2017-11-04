@@ -28,7 +28,9 @@ import Strategy.ModelSelectorTestDrive;
 public class Interface {
 
 	private JFrame frame;
-
+	
+	public JButton BeatM,btnHeartModel,btnArkanoidTestdrive,btnArkanoidBeat;
+	public JButton btnStrategy,btnModelsIn; 
 	/**
 	 * Launch the application.
 	 */
@@ -60,7 +62,7 @@ public class Interface {
 		frame.setBounds(100, 100, 500, 350);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JButton BeatM = new JButton("Beat Model");
+		BeatM = new JButton("Beat Model");
 		BeatM.setFont(new Font("Simplified Arabic", Font.ITALIC, 16));
 		BeatM.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -70,7 +72,7 @@ public class Interface {
 			}
 		});
 		
-		JButton btnHeartModel = new JButton("Heart Model");
+		btnHeartModel = new JButton("Heart Model");
 		btnHeartModel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HeartTestDrive.play();
@@ -80,7 +82,7 @@ public class Interface {
 		});
 		btnHeartModel.setFont(new Font("Simplified Arabic", Font.ITALIC, 16));
 		
-		JButton btnArkanoidTestdrive = new JButton("Arkanoid TestDrive");
+		btnArkanoidTestdrive = new JButton("Arkanoid TestDrive");
 		btnArkanoidTestdrive.setFont(new Font("Simplified Arabic", Font.ITALIC, 16));
 		btnArkanoidTestdrive.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -91,7 +93,7 @@ public class Interface {
 		});
 		
 
-		JButton btnModelsIn = new JButton("3 Models in 1");
+		btnModelsIn = new JButton("3 Models in 1");
 		btnModelsIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AllinOneTestDrive.play();
@@ -109,7 +111,7 @@ public class Interface {
 		frmtdtxtfldModelos.setBackground(SystemColor.menu);
 		frmtdtxtfldModelos.setFont(new Font("Simplified Arabic", Font.PLAIN, 28));
 		
-		JButton btnArkanoidBeat = new JButton("Arkanoid Beat");
+		btnArkanoidBeat = new JButton("Arkanoid Beat");
 		btnArkanoidBeat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ArkanoidBeatTestDrive.play();
@@ -118,7 +120,7 @@ public class Interface {
 		});
 		btnArkanoidBeat.setFont(new Font("Simplified Arabic", Font.ITALIC, 16));
 		
-		JButton btnStrategy = new JButton("Strategy");
+		btnStrategy = new JButton("Strategy");
 		btnStrategy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ModelSelectorTestDrive.play();

@@ -14,8 +14,6 @@ public class Bola extends Model implements Runnable, BeatModelInterface {
 	Thread thread;
 	Clip sonido;
 	int speed;
-	int a,b,c;
-	
 	ArrayList<BeatObserver> beatObservers = new ArrayList<BeatObserver>();
 	ArrayList<BPMObserver> bpmObservers = new ArrayList<BPMObserver>();
 
@@ -37,7 +35,7 @@ public class Bola extends Model implements Runnable, BeatModelInterface {
 	
 	public void run() {
 			while(true){
-		
+				
 				if (getPosX() + getXA() < 0) {
 					setXA(1);
 					Sound.PELOTITA.play();
@@ -50,6 +48,7 @@ public class Bola extends Model implements Runnable, BeatModelInterface {
 					notifyBeatObservers();
 					
 				}
+			
 				if (y + ya < 0) {
 					setYA(1);
 					Sound.PELOTITA.play();
@@ -118,10 +117,25 @@ public class Bola extends Model implements Runnable, BeatModelInterface {
 		}
 	}
 
+	public void removeObserver(BeatObserver o) {
+		int i = beatObservers.indexOf(o);
+		if (i >= 0) {
+			beatObservers.remove(i);
+		}
+	}
+
 	public void removeObserver(BPMObserver o) {
 		int i = bpmObservers.indexOf(o);
 		if (i >= 0) {
 			bpmObservers.remove(i);
 		}
-	}	
+	}
+	
+	public ArrayList<BeatObserver> getBetOber(){
+		return beatObservers;
+		
+	}public ArrayList<BPMObserver> getbpmObs(){
+		return bpmObservers;
+		
+	}
 }
