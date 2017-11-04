@@ -40,6 +40,9 @@ public class Bola extends Model implements Runnable, BeatModelInterface {
 		
 				if (getPosX() + getXA() < 0) {
 					setXA(1);
+					setXA(1);
+					setXA(1);
+					setXA(1);
 					Sound.PELOTITA.play();
 					notifyBeatObservers();
 				}
