@@ -43,6 +43,10 @@ public class Bola extends Model implements Runnable, BeatModelInterface {
 					setXA(1);
 					setXA(1);
 					setXA(1);
+					setXA(1);
+					setXA(1);
+					setXA(1);
+					setXA(1);
 					Sound.PELOTITA.play();
 					notifyBeatObservers();
 				}
@@ -118,13 +122,6 @@ public class Bola extends Model implements Runnable, BeatModelInterface {
 		for(int i = 0; i < bpmObservers.size(); i++) {
 			BPMObserver observer = (BPMObserver)bpmObservers.get(i);
 			observer.updateBPM();	
-		}
-	}
-
-	public void removeObserver(BeatObserver o) {
-		int i = beatObservers.indexOf(o);
-		if (i >= 0) {
-			beatObservers.remove(i);
 		}
 	}
 
