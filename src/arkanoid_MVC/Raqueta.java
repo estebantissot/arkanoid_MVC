@@ -11,7 +11,6 @@ public class Raqueta extends Model{
 		super(0,y,0,0);
 	}
 	
-
 	public int getAncho() {return ANCHO;}
 	
 	public int getAlto() {return ALTO;}

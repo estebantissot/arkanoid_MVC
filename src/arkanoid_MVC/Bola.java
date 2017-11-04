@@ -73,7 +73,6 @@ public class Bola extends Model implements Runnable, BeatModelInterface {
 	@Override
 	public void initialize() {
 		speed = 0;
-		speed = 0;
 	}
 
 	@Override
@@ -84,7 +83,6 @@ public class Bola extends Model implements Runnable, BeatModelInterface {
 	@Override
 	public void off() {
 		speed =0;
-		speed = 0;
 	}
 
 	@Override
